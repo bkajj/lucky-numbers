@@ -1,14 +1,11 @@
-#include <iostream>
-#include <iostream>
 #include "Functions.h"
-#include <random>
-#include <chrono>
-#include <ctime>
-#include <fstream>
-#include <experimental\filesystem>
 
 time_t funcT = time(nullptr);
 tm* tmPtr = localtime(&funcT);
+
+void ver_pl(std::string lang);
+
+void ver_eng(std::string lang);
 
 int random(int min, int max)
 {
@@ -58,11 +55,20 @@ std::string currentMonth()
 	return months[tmPtr->tm_mon];
 }
 
-std::string currMonthName()
+std::string currMonthName(std::string lang)
 {
-	std::string months[12] = { "Styczen", "Luty", "Marzec", "Kwiecien", "Maj", "Czerwiec",
-							   "Lipiec", "Sierpien", "Wrzesien", "Pazdziernik", "Listopad", "Grudzien" };
-	return months[tmPtr->tm_mon];
+	if (lang == "PL")
+	{
+		std::string months[] = { "Styczen", "Luty", "Marzec", "Kwiecien", "Maj", "Czerwiec",
+								   "Lipiec", "Sierpien", "Wrzesien", "Pazdziernik", "Listopad", "Grudzien" };
+		return months[tmPtr->tm_mon];
+	}
+	else if (lang == "ENG")
+	{
+		std::string months[] = { "January", "February", "March", "April", "May", "June",
+									"July", "August", "September", "October", "November", "December" };
+		return months[tmPtr->tm_mon];
+	}
 }
 
 int daysIn_CurrMonth()
@@ -79,10 +85,18 @@ int daysIn_CurrMonth()
 	}
 }
 
-std::string weekDayStr(int day)
+std::string weekDayStr(int day, std::string lang)
 {
-	std::string week[] = {  "Niedziela", "Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota"};
-	return week[day];
+	if (lang == "PL")
+	{
+		std::string week[] = { "Niedziela", "Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota" };
+		return week[day];
+	}
+	else if (lang == "ENG")
+	{
+		std::string week[] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+		return week[day];
+	}
 }
 
 int weekDayInt(int day)
@@ -90,15 +104,16 @@ int weekDayInt(int day)
 	int week[] = { 7, 1, 2, 3, 4, 5, 6};
 	return week[day];
 }
+
 int weekDayIntFunc(int day)
 {
 	int week[] = { 1, 2, 3, 4, 5, 6, 7 };
 	return week[day];
 }
 
-bool sysexists(std::string filepath)
+bool sysexists(std::experimental::filesystem::path path)
 {
-	return std::experimental::filesystem::exists(filepath) ? 1 : 0;
+	return std::experimental::filesystem::exists(path) ? 1 : 0;
 }
 
 int linesIn(std::ifstream& inputFile)

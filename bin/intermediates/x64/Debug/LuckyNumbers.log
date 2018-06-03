@@ -1,5 +1,4 @@
-﻿  Functions.cpp
-  Main.cpp
+﻿  SourceENG.cpp
+  SourcePL.cpp
   Generating Code...
-p:\visualc++\projects\luckynumbers\luckynumbers\src\functions.cpp(80): warning C4715: 'daysIn_CurrMonth': not all control paths return a value
   LuckyNumbers.vcxproj -> P:\VisualC++\Projects\LuckyNumbers\bin\x64\Debug\LuckyNumbers.exe
