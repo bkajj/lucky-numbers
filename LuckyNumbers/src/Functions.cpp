@@ -111,9 +111,9 @@ int weekDayIntFunc(int day)
 	return week[day];
 }
 
-bool sysexists(std::experimental::filesystem::path path)
+bool sysexists(std::filesystem::path path)
 {
-	return std::experimental::filesystem::exists(path) ? 1 : 0;
+	return std::filesystem::exists(path) ? 1 : 0;
 }
 
 int linesIn(std::ifstream& inputFile)

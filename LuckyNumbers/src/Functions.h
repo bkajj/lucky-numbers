@@ -6,7 +6,7 @@
 #include <chrono>
 #include <ctime>
 #include <fstream>
-#include <experimental\filesystem>
+#include <filesystem>
 #include <algorithm>
 
 //#pragma warning(disable:4715)
@@ -43,7 +43,7 @@ std::string weekDayStr(int day, std::string lang);
 int weekDayInt(int day);
 
 //checks if the file of directory existing
-bool sysexists(std::experimental::filesystem::path path);
+bool sysexists(std::filesystem::path path);
 
 //returns number of lines in file
 int linesIn(std::ifstream& inputFile);

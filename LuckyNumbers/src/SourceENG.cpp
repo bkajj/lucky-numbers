@@ -6,8 +6,8 @@ using std::endl;
 
 void ver_eng(std::string lang)
 {
-	std::experimental::filesystem::path txtPath = "txt/eng/";
-	std::experimental::filesystem::path tempPath = "txt/eng/Temp.txt";
+	std::filesystem::path txtPath = "txt/eng/";
+	std::filesystem::path tempPath = "txt/eng/Temp.txt";
 
 	time_t t = time(nullptr);
 	tm* tPtr = localtime(&t);

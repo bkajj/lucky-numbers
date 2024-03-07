@@ -6,7 +6,7 @@ using std::endl;
 
 int main()
 {
-	std::experimental::filesystem::path cfgPath = "txt/Config.txt"; //config file path
+	std::filesystem::path cfgPath = "txt/Config.txt"; //config file path
 
 	std::string lang; //user defined language
 
@@ -15,7 +15,7 @@ int main()
 
 	if (!sysexists("txt")) // creates txt directory
 	{
-		std::experimental::filesystem::create_directory("txt/");
+		std::filesystem::create_directory("txt/");
 	}
 
 	if (!sysexists(cfgPath))
@@ -41,12 +41,12 @@ int main()
 
 	if (lang == "PL")
 	{
-		std::experimental::filesystem::create_directory("txt/pl/");
+		std::filesystem::create_directory("txt/pl/");
 		ver_pl(lang);
 	}
 	else if (lang == "ENG")
 	{
-		std::experimental::filesystem::create_directory("txt/eng/");
+		std::filesystem::create_directory("txt/eng/");
 		ver_eng(lang);
 	}
 	else
@@ -54,7 +54,7 @@ int main()
 		cout << "Error occurred when reading language / Podczas wczytywania jezyka wystapil blad" << endl;
 		cout << "Try again! / Sprobuj ponownie!" << endl;
 		system("pause");
-		std::experimental::filesystem::remove(cfgPath); //removes config file when error occurred
+		std::filesystem::remove(cfgPath); //removes config file when error occurred
 		return 1;
 	}
 	return 0;
